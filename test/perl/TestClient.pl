@@ -160,7 +160,7 @@ print(" = void\n");
 #
 print('testString("Test")');
 my $s = $testClient->testString('Test');
-print(" = \"$s\"\n");
+print(qq| = "$s"\n|);
 exit(ERR_BASETYPES) if ($s ne 'Test');
 
 #
@@ -169,8 +169,8 @@ exit(ERR_BASETYPES) if ($s ne 'Test');
 if (index($opts{protocol}, 'multi') == 0) {
     print('secondtestString("Test2")');
     $s = $secondService->secondtestString('Test2');
-    print(" = \"$s\"\n");
-    exit(ERR_PROTOCOL) if ($s ne 'testString('Test2')');
+    print(qq| = "$s"\n|);
+    exit(ERR_PROTOCOL) if ($s ne 'testString("Test2")');
 }
 
 #
