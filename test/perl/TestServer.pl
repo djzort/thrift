@@ -27,7 +27,7 @@ use Getopt::Long qw(GetOptions);
 use Time::HiRes qw(gettimeofday);
 
 $SIG{INT} = \&sigint_handler;
- 
+
 use lib '../../lib/perl/lib';
 use lib 'gen-perl';
 
@@ -48,7 +48,7 @@ use ThriftTest::Types;
 $|++;
 
 sub usage {
-    print <<EOF;
+    print <<"EOF";
 Usage: $0 [OPTIONS]
 
 Options:                          (default)
@@ -389,12 +389,14 @@ sub testException() {
   my $self = shift;
   my $arg = shift;
   print("testException($arg)\n");
-  if ($arg eq "Xception") {
-    die new ThriftTest::Xception({errorCode => 1001, message => $arg});
-  } elsif ($arg eq "TException") {
-    die "astring"; # all unhandled exceptions become TExceptions
-  } else {
-    return new ThriftTest::Xtruct({string_thing => $arg});
+  if ($arg eq 'Xception') {
+      die ThriftTest::Xception->new({errorCode => 1001, message => $arg});
+  }
+  elsif ($arg eq 'TException') {
+      die 'astring'; # all unhandled exceptions become TExceptions
+  }
+  else {
+      return ThriftTest::Xtruct->new({string_thing => $arg});
   }
 }
 
