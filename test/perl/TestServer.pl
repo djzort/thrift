@@ -317,17 +317,7 @@ sub testSet() {
 sub testList() {
   my $self = shift;
   my $thing = shift;
-  print("testList({");
-  my $first = 1;
-  foreach my $key (@$thing) {
-    if ($first) {
-        $first = 0;
-    } else {
-        print(", ");
-    }
-    print("$key");
-  }
-  print("})\n");
+  print "testList({%s})\n", join(', ', @$thing);
   return $thing;
 }
 
