@@ -226,12 +226,9 @@ sub testBinary() {
     my $self = shift;
     my $thing = shift;
     my @bytes = split //, $thing;
-    print("testBinary(");
-    foreach (@bytes)
-    {
-        printf "%02lx", ord $_;
-    }
-    print(")\n");
+    print 'testBinary(';
+    printf( '%02lx', ord $_ ) foreach (@bytes);
+    print ")\n";
     return $thing;
 }
 
@@ -263,34 +260,22 @@ sub testNest() {
 sub testMap() {
   my $self = shift;
   my $thing = shift;
-  print("testMap({");
-  my $first = 1;
-  foreach my $key (keys %$thing) {
-    if ($first) {
-        $first = 0;
-    } else {
-        print(", ");
-    }
-    print("$key => $thing->{$key}");
-  }
-  print("})\n");
+  printf "testMap({%s})\n",
+    join( ', ',
+          map { $key . ' => ' . $thing->{$key} }
+          sort keys %$thing
+    );
   return $thing;
 }
 
 sub testStringMap() {
   my $self = shift;
   my $thing = shift;
-  print("testStringMap({");
-  my $first = 1;
-  foreach my $key (keys %$thing) {
-    if ($first) {
-        $first = 0;
-    } else {
-        print(", ");
-    }
-    print("$key => $thing->{$key}");
-  }
-  print("})\n");
+  printf "testStringMap({%s})\n",
+    join( ', ',
+          map { $key . ' => ' . $thing->{$key} }
+          sort keys %$thing
+    );
   return $thing;
 }
 
