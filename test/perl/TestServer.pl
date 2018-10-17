@@ -282,7 +282,7 @@ sub testStringMap() {
   my $thing = shift;
   print("testStringMap({");
   my $first = 1;
-  foreach my $key (keys %$thing) {
+  foreach my $key (sort keys %$thing) {
     if ($first) {
         $first = 0;
     } else {
