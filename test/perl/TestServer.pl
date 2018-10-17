@@ -226,12 +226,9 @@ sub testBinary() {
     my $self = shift;
     my $thing = shift;
     my @bytes = split //, $thing;
-    print("testBinary(");
-    foreach (@bytes)
-    {
-        printf "%02lx", ord $_;
-    }
-    print(")\n");
+    print 'testBinary(';
+    printf( '%02lx', ord $_ ) foreach (@bytes);
+    print ")\n";
     return $thing;
 }
 
