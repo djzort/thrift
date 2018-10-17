@@ -260,16 +260,22 @@ sub testNest() {
 sub testMap() {
   my $self = shift;
   my $thing = shift;
-  print "testMap({%s})\n",
-    join(', ', map { $key . ' => ' . $thing->{$key} } sort keys %$thing );
+  printf "testMap({%s})\n",
+    join( ', ',
+          map { $_ . ' => ' . $thing->{$_} }
+          sort keys %$thing
+    );
   return $thing;
 }
 
 sub testStringMap() {
   my $self = shift;
   my $thing = shift;
-  print "testStringMap({%s})\n",
-    join(', ', map { $key . ' => ' . $thing->{$key} } sort keys %$thing );
+  printf "testStringMap({%s})\n",
+    join( ', ',
+          map { $_ . ' => ' . $thing->{$_} }
+          sort keys %$thing
+    );
   return $thing;
 }
 
