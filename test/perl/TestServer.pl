@@ -175,18 +175,18 @@ sub new {
     return bless($self, $classname);
 }
 
-sub testVoid() {
+sub testVoid {
   print("testVoid()\n");
 }
 
-sub testString() {
+sub testString {
   my $self = shift;
   my $thing = shift;
   print("testString($thing)\n");
   return $thing;
 }
 
-sub testBool() {
+sub testBool {
   my $self = shift;
   my $thing = shift;
   my $str = $thing ? 'true' : 'false';
@@ -194,35 +194,35 @@ sub testBool() {
   return $thing;
 }
 
-sub testByte() {
+sub testByte {
   my $self = shift;
   my $thing = shift;
   print("testByte($thing)\n");
   return $thing;
 }
 
-sub testI32() {
+sub testI32 {
   my $self = shift;
   my $thing = shift;
   print("testI32($thing)\n");
   return $thing;
 }
 
-sub testI64() {
+sub testI64 {
   my $self = shift;
   my $thing = shift;
   print("testI64($thing)\n");
   return $thing;
 }
 
-sub testDouble() {
+sub testDouble {
   my $self = shift;
   my $thing = shift;
   print("testDouble($thing)\n");
   return $thing;
 }
 
-sub testBinary() {
+sub testBinary {
     my $self = shift;
     my $thing = shift;
     my @bytes = split //, $thing;
@@ -232,7 +232,7 @@ sub testBinary() {
     return $thing;
 }
 
-sub testStruct() {
+sub testStruct {
   my $self = shift;
   my $thing = shift;
   printf(qq|testStruct({"%s", %d, %d, %lld})\n|,
@@ -243,7 +243,7 @@ sub testStruct() {
   return $thing;
 }
 
-sub testNest() {
+sub testNest {
   my $self = shift;
   my $nest = shift;
   my $thing = $nest->{struct_thing};
@@ -257,7 +257,7 @@ sub testNest() {
   return $nest;
 }
 
-sub testMap() {
+sub testMap {
   my $self = shift;
   my $thing = shift;
   printf "testMap({%s})\n",
@@ -268,7 +268,7 @@ sub testMap() {
   return $thing;
 }
 
-sub testStringMap() {
+sub testStringMap {
   my $self = shift;
   my $thing = shift;
   printf "testStringMap({%s})\n",
@@ -279,7 +279,7 @@ sub testStringMap() {
   return $thing;
 }
 
-sub testSet() {
+sub testSet {
   my $self = shift;
   my $thing = shift;
   my @result = sort keys %$thing;
@@ -287,28 +287,28 @@ sub testSet() {
   return \@result;
 }
 
-sub testList() {
+sub testList {
   my $self = shift;
   my $thing = shift;
   print "testList({%s})\n", join(', ', @$thing);
   return $thing;
 }
 
-sub testEnum() {
+sub testEnum {
   my $self = shift;
   my $thing = shift;
   print "testEnum($thing)\n";
   return $thing;
 }
 
-sub testTypedef() {
+sub testTypedef {
   my $self = shift;
   my $thing = shift;
   print("testTypedef($thing)\n");
   return $thing;
 }
 
-sub testMapMap() {
+sub testMapMap {
   my $self = shift;
   my $hello = shift;
 
@@ -317,7 +317,7 @@ sub testMapMap() {
   return $result;
 }
 
-sub testInsanity() {
+sub testInsanity {
   my $self = shift;
   my $argument = shift;
   print("testInsanity()\n");
@@ -335,7 +335,7 @@ sub testInsanity() {
   return $result;
 }
 
-sub testMulti() {
+sub testMulti {
   my $self = shift;
   my $arg0 = shift;
   my $arg1 = shift;
@@ -348,7 +348,7 @@ sub testMulti() {
   return ThriftTest::Xtruct->new({string_thing => 'Hello2', byte_thing => $arg0, i32_thing => $arg1, i64_thing => $arg2});
 }
 
-sub testException() {
+sub testException {
   my $self = shift;
   my $arg = shift;
   print("testException($arg)\n");
@@ -363,7 +363,7 @@ sub testException() {
   }
 }
 
-sub testMultiException() {
+sub testMultiException {
   my $self = shift;
   my $arg0 = shift;
   my $arg1 = shift;
@@ -381,7 +381,7 @@ sub testMultiException() {
   }
 }
 
-sub testOneway() {
+sub testOneway {
   my $self = shift;
   my $num = shift;
   print("testOneway($num): received\n");
@@ -401,7 +401,7 @@ sub new {
     return bless($self, $classname);
 }
 
-sub secondtestString() {
+sub secondtestString {
   my $self = shift;
   my $thing = shift;
   print("testString($thing)\n");
